@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +9,40 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Hola :p</h1>
+    <h1> Hola :p</h1>
+    <br>
+    {% for producto in productos %}
+    <div class="card mt-3" style="width: 18rem;">
+        <img class="card-img-top mt-2" src="{{producto.imagen_prod.url}}" alt="{{ producto.nom_prod }}">
+        <div class="card-body">
+          <h5 class="card-title">Nombre: {{producto.nom_prod}}</h5>
+          <p class="card-text">Precio: $ {{producto.precio_prod}} CLP</p>
+          <p class="card-text">Descripcion: {{producto.desc_prod}}</p>
+          <p class="card-text">Cantidad: {{producto.cantidad}}</p>
+          <div class="informacion">
+          <button class="informacion" onclick="agregarProducto(${id})">Agregar al Carrito</button>
+          </div> 
+        </div>
+    </div>
+    <br>
+    {% endfor %}
+    
+
+<!--     {% for producto in productos %}
+        <img src="{{producto.imagen_prod.url}}" alt="{{ producto.nom_prod }}">
+        <br>
+    {% endfor %} -->
+
+<!-- 
+    <br>
+        {% for producto in productos %}
+            {{producto.id_prod}}, {{producto.id_prod_etiqueta}}, {{producto.imagen_prod}} ,
+            {{producto.nom_prod}}, {{producto.precio_prod}}, {{producto.desc_prod}}, {{producto.cantidad}}
+            <br>
+        {% endfor %}    
+
+    <br> -->
+
+    <h2> Chaoo :) </h2>
 </body>
 </html>

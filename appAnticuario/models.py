@@ -2,15 +2,17 @@ from django.db import models
 # Create your models here.
 
 class producto(models.Model):
-    id_prod =  models.IntegerField(primary_key=True, max_length=5)
+    id_prod =  models.IntegerField(primary_key=True)
     id_prod_etiqueta = models.CharField(max_length=15)
-   # """ id_oferta= models.ForeignKey('En oferta', on_delete=models.CASCADE, db_column='') """
+    enOferta = models.BooleanField(default=False)
+    imagen_prod = models.ImageField(upload_to="productos")
     nom_prod = models.CharField(max_length=35)
-    precio_prod = models.IntegerField(max_length=7)
+    precio_prod = models.IntegerField()
     desc_prod= models.CharField(max_length=150)
-    cantidad = models.IntegerField(max_length=3)
+    cantidad = models.IntegerField()
 
+    def __str__(self):
+        return f'{self.nom_prod} -> {self.precio_prod}'
+    
 
-
-#""" class ofertas(models.model): """
     
